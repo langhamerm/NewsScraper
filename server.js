@@ -17,7 +17,7 @@ var cheerio = require("cheerio");
 mongoose.Promise = Promise;
 
 //Define port
-var port = process.env.PORT || 3030
+var port = process.env.PORT || 3000
 
 // Initialize Express
 var app = express();
@@ -87,7 +87,7 @@ app.get("/saved", function(req, res) {
 // A GET request to scrape the echojs website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
-  request("https://www.nytimes.com/", function(error, response, html) {
+  request("https://www.buzzfeednews.com/", function(error, response, html) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
     // console.log(JSON.stringify(html));
@@ -96,11 +96,13 @@ app.get("/scrape", function(req, res) {
 
       // Save an empty result object
       var result = {};
-
+      console.log("TITLE: " + $(this).children("a").children("span").children("h2").text());
+      console.log("SUMMMARY: " + $(this).children("a").children("span").children("p").text());
+      console.log("LINK: " + $(this).children("a").attr("href"));
       // Add the title and summary of every link, and save them as properties of the result object
-      result.title = $(this).children("h2").text();
-      result.summary = $(this).children(".summary").text();
-      result.link = $(this).children("h2").children("a").attr("href");
+      result.title = $(this).children("a").children("span").children("h2").text();
+      result.summary = $(this).children("a").children("span").children("p").text();
+      result.link = $(this).children("a").attr("href");
       // console.log(result);
       // Using our Article model, create a new entry
       // This effectively passes the result object to the entry (and the title and link)

@@ -1,7 +1,14 @@
 
 body {
-    background-image: url("/assets/images/background.jpg");
+    background-image: url("/assets/images/buzz.png");
     padding-top: 70px;
+}
+h1, #banner {
+    text-shadow: springgreen 2px 2px;
+    font-size: 72px;
+}
+h4 {
+    font-size: 24px;
 }
 
 .deleteNote {
@@ -16,3 +23,76 @@ body {
 #scrape {
     margin: 8px 0px;
 }
+.jumbotron {
+    background: red;
+    color: yellow;
+    border: lightskyblue;
+    border-style: double;
+    border-width: 5px 5px 5px 5px;
+}
+.panel-default>.panel-heading {
+    background: red;
+    color: yellow;
+    text-shadow: navy 2px 2px;
+}
+.panel {
+    background: rgb(247, 201, 0);
+    color: purple;
+    text-shadow: red 1px 1px;
+    font-size: 18px;
+    border: lightskyblue;
+    border-style: double;
+    border-width: 5px 5px 5px 5px;
+}
+.navbar {
+    background: red;
+}
+.navbar-default .navbar-brand {
+    color: yellow;
+    text-shadow: blueviolet 2px 2px;
+}
+#nbar {
+    color: yellow;
+    text-shadow: blueviolet 2px 2px;
+}
+#scrape{
+    background: red;
+    color: yellow;
+    border: double;
+    border-color: orangered;
+    border-width: 2px 2px 2px 2px;
+    position:relative;
+    height:40px;
+    font-size:1.6em;
+    text-shadow: blueviolet 2px 2px;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline: yellow;
+  }
+  #scrape:hover{
+    background: yellow;
+    color: red;
+    text-shadow: lightgreen 2px 2px;
+  }
+  #scrape:before,#scrape:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: red;
+    transition:400ms ease all;
+  }
+  #scrape:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  #scrape:hover:before,#scrape:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+  
